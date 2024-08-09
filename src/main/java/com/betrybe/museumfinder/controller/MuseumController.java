@@ -38,7 +38,7 @@ public class MuseumController {
    * @param newMuseum the new museum
    * @return the response entity
    */
-  @PostMapping("/museum")
+  @PostMapping
   public ResponseEntity<MuseumCreationDto> postMuseum(@RequestBody MuseumCreationDto newMuseum) {
     Museum museum = new Museum();
     museum.setAddress(newMuseum.address());
@@ -59,7 +59,7 @@ public class MuseumController {
             museumCreate.getUrl(),
             museumCreate.getCoordinate()
     );
-    return ResponseEntity.status(HttpStatus.CREATED).body(museumCreationDto);
+    return ResponseEntity.status(HttpStatus.CREATED).body(newMuseum);
   }
 
 
